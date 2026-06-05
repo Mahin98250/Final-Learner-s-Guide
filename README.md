@@ -1,205 +1,56 @@
-You are a senior full-stack engineer.
+# Learner's Guide Platform
 
-Your task is to convert this repository into a production-ready Learner's Guide platform using the uploaded React files already present in the repository.
+A production-ready Learner's Guide platform built with React, Vite, Tailwind CSS, React Router, and Supabase.
 
-## Goals
+## Project structure
 
-Build a complete React + Vite + Supabase application.
+- `src/`
+  - `components/` — shared UI helpers and route guards.
+  - `pages/` — landing, login, signup, student, teacher, parent, admin, and 404 pages.
+  - `contexts/` — authentication context and session handling.
+  - `services/` — Supabase access and local fallback data layer.
+  - `assets/` — assets and images.
+  - `App.jsx` — root React app.
+  - `main.jsx` — Vite bootstrap.
+  - `router.jsx` — app route definitions.
+- `supabase/schema.sql` — Supabase-compatible schema.
+- `.github/workflows/deploy.yml` — GitHub Actions build workflow.
+- `.env.example` — template environment variables.
 
-The repository contains:
+## Setup
 
-* learners-guide-withlogo-supabase.jsx
-* learners-guide-admin-supabase.jsx
+1. Copy `.env.example` to `.env`.
+2. Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
+3. Install dependencies:
 
-Analyze both files completely and preserve all existing functionality.
+```bash
+npm install
+```
 
-## Required Actions
+4. Start the development server:
 
-### 1. Project Structure
+```bash
+npm run dev
+```
 
-Create a clean production structure:
+## Supabase configuration
 
-src/
-├── components/
-├── pages/
-├── layouts/
-├── services/
-├── hooks/
-├── assets/
-├── App.jsx
-├── main.jsx
-└── router.jsx
+Add these values to `.env`:
 
-Move code into appropriate modules.
+```env
+VITE_SUPABASE_URL=https://YOUR_SUPABASE_PROJECT.supabase.co
+VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
+```
 
----
+The app uses `src/services/supabase.js` for centralized Supabase client access and `src/services/db.js` for authenticated REST queries and local fallback behavior.
 
-### 2. Routing
+## Deploy on Vercel
 
-Implement React Router.
+1. Push the repository to GitHub.
+2. Connect the project in Vercel.
+3. Add the same environment variables in Vercel.
+4. Set the build command to `npm run build` and output directory to `dist`.
 
-Required routes:
+## Legacy code
 
-/ → Landing page
-/login → Login
-/student → Student dashboard
-/teacher → Teacher dashboard
-/parent → Parent dashboard
-/admin → Admin dashboard
-
-Protect dashboard routes with authentication.
-
----
-
-### 3. Supabase
-
-The existing code contains Supabase configuration.
-
-Move all Supabase credentials into:
-
-.env
-
-Use:
-
-VITE_SUPABASE_URL=
-VITE_SUPABASE_ANON_KEY=
-
-Replace hardcoded values everywhere.
-
-Create:
-
-src/services/supabase.js
-
-for centralized Supabase access.
-
----
-
-### 4. Database Verification
-
-Inspect all tables referenced in the code and generate a complete SQL schema.
-
-Create:
-
-supabase/schema.sql
-
-Include tables such as:
-
-users
-students
-teachers
-attendance
-homework
-materials
-announcements
-fees
-marks
-messages
-notifications
-batches
-timetable
-examschedule
-
-Add sensible indexes and primary keys.
-
----
-
-### 5. UI Upgrade
-
-Keep all functionality.
-
-Improve:
-
-* responsiveness
-* spacing
-* typography
-* cards
-* tables
-* forms
-* mobile experience
-
-Use:
-
-* Tailwind CSS
-
-Create a modern educational SaaS appearance.
-
-Color palette:
-
-Primary: #5B4FE8
-Secondary: #F5A623
-Success: #22C55E
-
----
-
-### 6. Security
-
-Remove all secrets from source code.
-
-Use environment variables.
-
-Check authentication logic.
-
-Add route guards.
-
-Prevent unauthorized dashboard access.
-
----
-
-### 7. Error Handling
-
-Add:
-
-* loading states
-* empty states
-* error states
-* toast notifications
-
-Avoid blank screens.
-
----
-
-### 8. Deployment
-
-Configure:
-
-* Vite build
-* GitHub Actions workflow
-* Vercel deployment compatibility
-
-Create:
-
-.github/workflows/deploy.yml
-
-Ensure successful production builds.
-
----
-
-### 9. Code Quality
-
-Remove duplicate code.
-
-Remove unused variables.
-
-Fix warnings.
-
-Use reusable components.
-
-Add comments only where necessary.
-
----
-
-### 10. Final Deliverables
-
-When finished:
-
-1. Commit all changes.
-2. Generate README.md.
-3. Explain project structure.
-4. Explain how to connect Supabase.
-5. Explain how to deploy on Vercel.
-6. List all files created and modified.
-7. Push changes to the current branch.
-
-Do not ask for confirmation.
-
-Inspect the entire repository and complete all tasks automatically.
+The originally uploaded files are preserved in `src/legacy/`.
