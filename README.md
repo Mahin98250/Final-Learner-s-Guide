@@ -1,56 +1,135 @@
 # Learner's Guide Platform
 
-A production-ready Learner's Guide platform built with React, Vite, Tailwind CSS, React Router, and Supabase.
+A production-ready education management platform for institutes, connecting **Admin, Teacher, Student, and Parent portals** with secure role-based access.
 
-## Project structure
+## 🚀 Features
 
-- `src/`
-  - `components/` — shared UI helpers and route guards.
-  - `pages/` — landing, login, signup, student, teacher, parent, admin, and 404 pages.
-  - `contexts/` — authentication context and session handling.
-  - `services/` — Supabase access and local fallback data layer.
-  - `assets/` — assets and images.
-  - `App.jsx` — root React app.
-  - `main.jsx` — Vite bootstrap.
-  - `router.jsx` — app route definitions.
-- `supabase/schema.sql` — Supabase-compatible schema.
-- `.github/workflows/deploy.yml` — GitHub Actions build workflow.
-- `.env.example` — template environment variables.
+### 👨‍💼 Admin Portal
+- Student management
+- Teacher management
+- Batch/class management
+- Attendance overview
+- Leave request approval
+- Fees management
+- Results and academic management
+- Platform administration
 
-## Setup
+### 👨‍🏫 Teacher Portal
+- Assigned student management
+- Attendance entry
+- Academic updates
+- Marks and results management
+- Batch-based access control
 
-1. Copy `.env.example` to `.env`.
-2. Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
-3. Install dependencies:
+### 🎓 Student Portal
+- Personal profile
+- Attendance tracking
+- Marks and test results
+- Study materials
+- Leave requests
+- Academic progress view
+
+### 👨‍👩‍👧 Parent Portal
+- Linked student overview
+- Attendance monitoring
+- Fees tracking
+- Results and marks viewing
+- Leave request submission
+- Student performance summary
+
+## 📚 Academic Features
+
+### Attendance System
+- Role-based attendance access
+- Student attendance tracking
+- Admin and teacher management flow
+
+### Leave Management
+- Student/parent leave requests
+- Admin approval workflow
+- Attendance integration after approval
+
+### Fees Tracking
+- Student fee information
+- Parent fee visibility
+- Admin management controls
+
+### Results & Analytics
+- Marks display
+- Test results
+- Academic progress tracking
+
+### Study Materials
+- Digital learning resources
+- Student access controls
+
+## 🔐 Security
+
+- Supabase authentication
+- Row Level Security (RLS)
+- Role-based permissions
+- Protected student data access
+- Private repository deployment support
+
+## 🛠 Technology Stack
+
+- React + Vite
+- Tailwind CSS
+- React Router
+- Supabase
+- PostgreSQL
+- Vercel deployment
+- Progressive Web App (PWA)
+
+## 📱 PWA Installation
+
+The platform can be installed as an app from supported browsers.
+
+## ⚙️ Local Setup
+
+1. Clone repository
+2. Create `.env` file
+3. Add:
+
+```env
+VITE_SUPABASE_URL=YOUR_SUPABASE_URL
+VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
+```
+
+4. Install dependencies:
 
 ```bash
 npm install
 ```
 
-4. Start the development server:
+5. Run:
 
 ```bash
 npm run dev
 ```
 
-## Supabase configuration
+## 🚀 Deployment
 
-Add these values to `.env`:
+Recommended production setup:
 
-```env
-VITE_SUPABASE_URL=https://YOUR_SUPABASE_PROJECT.supabase.co
-VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
-```
+- Private GitHub repository
+- Vercel deployment
+- Supabase RLS enabled
+- No service-role keys in frontend
 
-The app uses `src/services/supabase.js` for centralized Supabase client access and `src/services/db.js` for authenticated REST queries and local fallback behavior.
+## 📄 Documentation
 
-## Deploy on Vercel
+Additional documents:
+- Privacy Policy
+- Terms & Conditions
+- License
+- User/Admin Guide
 
-1. Push the repository to GitHub.
-2. Connect the project in Vercel.
-3. Add the same environment variables in Vercel.
-4. Set the build command to `npm run build` and output directory to `dist`.
+## Project Structure
 
-## Legacy code
+- `src/components` - reusable UI components
+- `src/pages` - application pages
+- `src/contexts` - authentication/session handling
+- `src/services` - Supabase services
+- `supabase` - database schema
 
-The originally uploaded files are preserved in `src/legacy/`.
